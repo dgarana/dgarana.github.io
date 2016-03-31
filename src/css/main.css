@@ -1,0 +1,28 @@
+/*
+Main class file.
+ */
+
+body {
+    background-color: #d0e4fe;
+    height: 100%;
+}
+
+.main-header {
+    text-align: center;
+}
+
+.github-fork img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0;
+}
+
+.footer {
+    text-align: center;
+}
+
+.footer img{
+    height: 20px;
+    width: 20px;
+}

@@ -1,0 +1,21 @@
+{
+  "name": "dgarana.github.io",
+  "version": "1.0.0",
+  "description": "David Garaña Portfolio",
+  "private": "true",
+  "scripts": {
+    "runserver": "docker-compose up"
+  },
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dgarana/dgarana.github.io"
+  },
+  "devDependencies": {
+    "grunt-contrib-csslint": "^1.0.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-jscs": "^2.8.0",
+    "grunt":"^0.4.5"
+  }
+}
