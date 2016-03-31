@@ -1,7 +1,10 @@
 # Javascript folders not to sync.
 *node_modules/
 
+# Custom
 *.DS_Store
+*.swp
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
