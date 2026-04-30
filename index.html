@@ -1,22 +1,56 @@
 ---
 layout: default
+title: Project documentation
+lang: en
+alternate_url: /es/
 ---
 
-<div class="home">
+<section class="home-hero">
+  <div class="wrapper home-hero__grid">
+    <div>
+      <p class="eyebrow">Documentation hub</p>
+      <h1>Applications, libraries, and the decisions behind them.</h1>
+      <p class="home-lede">This site is the front door for dgarana projects: focused documentation, implementation notes, and practical guides for the tools worth sharing.</p>
+      <div class="project-actions">
+        <a class="button button-primary" href="{{ "/projects/" | prepend: site.baseurl }}">Browse projects</a>
+        <a class="button button-secondary" href="https://github.com/dgarana">GitHub profile</a>
+      </div>
+    </div>
+    <div class="home-console" aria-hidden="true">
+      <div class="console-line prompt">$ open docs</div>
+      <div class="console-line ok">/projects/vulcano</div>
+      <div class="console-line ok">/projects/fmusic</div>
+      <div class="console-line muted">building useful things, then documenting them well</div>
+    </div>
+  </div>
+</section>
 
-  <h1 class="page-heading">Posts</h1>
+<section class="wrapper section">
+  <div class="section-heading">
+    <p class="eyebrow">Featured projects</p>
+    <h2>Two projects, two product worlds.</h2>
+  </div>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
+  <div class="project-card-grid">
+    {% assign featured_projects = site.projects | sort: "order" %}
+    {% for project in featured_projects %}
+      <a class="project-card project-card--{{ project.theme }}" href="{{ project.url | prepend: site.baseurl }}">
+        <span class="project-card__label">{{ project.kind }}</span>
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.summary }}</p>
+        <span class="project-card__link">Read the docs</span>
+      </a>
     {% endfor %}
-  </ul>
+  </div>
+</section>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-</div>
+<section class="wrapper section split-section">
+  <div>
+    <p class="eyebrow">What belongs here</p>
+    <h2>Documentation as a product surface.</h2>
+  </div>
+  <div class="feature-list">
+    <p>Each project gets its own visual language, overview, setup guide, architecture notes, and feature map.</p>
+    <p>The goal is simple: when someone lands here from GitHub, PyPI, a release, or a conversation, they immediately understand what the project does and where to go next.</p>
+  </div>
+</section>

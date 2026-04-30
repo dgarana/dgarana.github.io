@@ -1,6 +1,7 @@
-/**
- * Reset some basic elements
- */
+* {
+    box-sizing: border-box;
+}
+
 body, h1, h2, h3, h4, h5, h6,
 p, blockquote, pre, hr,
 dl, dd, ol, ul, figure {
@@ -8,199 +9,141 @@ dl, dd, ol, ul, figure {
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
 
-
-/**
- * Basic styling
- */
 body {
     font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
     color: $text-color;
-    background-color: $background-color;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(247, 244, 239, 0.96)),
+        $background-color;
     -webkit-text-size-adjust: 100%;
-    -webkit-font-feature-settings: "kern" 1;
-    -moz-font-feature-settings: "kern" 1;
-    -o-font-feature-settings: "kern" 1;
     font-feature-settings: "kern" 1;
     font-kerning: normal;
 }
 
-
-
-/**
- * Set `margin-bottom` to maintain vertical rhythm
- */
-h1, h2, h3, h4, h5, h6,
-p, blockquote, pre,
-ul, ol, dl, figure,
 %vertical-rhythm {
     margin-bottom: $spacing-unit / 2;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    color: #101418;
+    font-weight: 760;
+    line-height: 1.08;
+}
 
+h1 {
+    font-size: clamp(2.8rem, 6vw, 5.7rem);
+}
 
-/**
- * Images
- */
+h2 {
+    font-size: clamp(2rem, 4vw, 3.4rem);
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+p {
+    color: #4d5962;
+}
+
 img {
+    display: block;
     max-width: 100%;
     vertical-align: middle;
 }
 
-
-
-/**
- * Figures
- */
-figure > img {
-    display: block;
-}
-
-figcaption {
-    font-size: $small-font-size;
-}
-
-
-
-/**
- * Lists
- */
 ul, ol {
     margin-left: $spacing-unit;
 }
 
-li {
-    > ul,
-    > ol {
-         margin-bottom: 0;
-    }
-}
-
-
-
-/**
- * Headings
- */
-h1, h2, h3, h4, h5, h6 {
-    font-weight: $base-font-weight;
-}
-
-
-
-/**
- * Links
- */
 a {
     color: $brand-color;
     text-decoration: none;
+    transition: color 160ms ease, border-color 160ms ease, background 160ms ease, transform 160ms ease;
 
     &:visited {
-        color: darken($brand-color, 15%);
+        color: $brand-color;
     }
 
     &:hover {
-        color: $text-color;
-        text-decoration: underline;
+        color: darken($brand-color, 14%);
     }
 }
 
-
-
-/**
- * Blockquotes
- */
 blockquote {
-    color: $grey-color;
-    border-left: 4px solid $grey-color-light;
-    padding-left: $spacing-unit / 2;
-    font-size: 18px;
-    letter-spacing: -1px;
-    font-style: italic;
-
-    > :last-child {
-        margin-bottom: 0;
-    }
+    border-left: 4px solid currentColor;
+    color: #8f3f22;
+    margin: 2rem 0;
+    padding: 0.2rem 0 0.2rem 1rem;
 }
 
-
-
-/**
- * Code formatting
- */
 pre,
 code {
-    font-size: 15px;
-    border: 1px solid $grey-color-light;
-    border-radius: 3px;
-    background-color: #eef;
+    border-radius: 7px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
 }
 
 code {
-    padding: 1px 5px;
+    background: rgba(16, 20, 24, 0.08);
+    color: #222;
+    font-size: 0.92em;
+    padding: 0.12rem 0.36rem;
 }
 
 pre {
-    padding: 8px 12px;
+    background: #101418;
+    color: #f7f4ef;
     overflow-x: auto;
+    padding: 1.1rem;
 
-    > code {
-        border: 0;
-        padding-right: 0;
-        padding-left: 0;
+    code {
+        background: transparent;
+        color: inherit;
+        padding: 0;
     }
 }
 
+table {
+    border-collapse: collapse;
+    margin: 1.5rem 0 2rem;
+    width: 100%;
+}
 
+th,
+td {
+    border-bottom: 1px solid rgba(16, 20, 24, 0.12);
+    padding: 0.85rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+}
 
-/**
- * Wrapper
- */
+th {
+    color: #101418;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
 .wrapper {
-    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
-    max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
     margin-right: auto;
     margin-left: auto;
-    padding-right: $spacing-unit;
-    padding-left: $spacing-unit;
-    @extend %clearfix;
-
-    @include media-query($on-laptop) {
-        max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
-        max-width:         calc(#{$content-width} - (#{$spacing-unit}));
-        padding-right: $spacing-unit / 2;
-        padding-left: $spacing-unit / 2;
-    }
+    max-width: $content-width;
+    padding-right: 24px;
+    padding-left: 24px;
+    width: 100%;
 }
 
+.icon > svg {
+    display: inline-block;
+    height: 16px;
+    vertical-align: middle;
+    width: 16px;
 
-
-/**
- * Clearfix
- */
-%clearfix {
-
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-}
-
-
-
-/**
- * Icons
- */
-.icon {
-
-    > svg {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        vertical-align: middle;
-
-        path {
-            fill: $grey-color;
-        }
+    path {
+        fill: currentColor;
     }
 }

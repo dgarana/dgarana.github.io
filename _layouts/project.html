@@ -1,15 +1,43 @@
 ---
 layout: default
 ---
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+<article class="project-doc">
 
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-    <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
+  <header class="project-hero">
+    <div class="wrapper project-hero__grid">
+      <div class="project-hero__copy">
+        <p class="eyebrow">{{ page.status | default: "Project documentation" }}</p>
+        <h1>{{ page.title }}</h1>
+        {% if page.summary %}
+          <p class="project-summary">{{ page.summary }}</p>
+        {% endif %}
+        <div class="project-actions">
+          {% if page.github %}
+            <a class="button button-primary" href="{{ page.github }}">GitHub</a>
+          {% endif %}
+          {% if page.primary_cta_url and page.primary_cta_label %}
+            <a class="button button-secondary" href="{{ page.primary_cta_url }}">{{ page.primary_cta_label }}</a>
+          {% endif %}
+        </div>
+      </div>
+      <div class="project-hero__visual" aria-hidden="true">
+        {{ page.visual }}
+      </div>
+    </div>
   </header>
 
-  <div class="post-content" itemprop="articleBody">
-    {{ content }}
+  <div class="wrapper docs-shell">
+    {% if page.nav %}
+      <aside class="docs-nav" aria-label="{{ page.title }} sections">
+        <strong>{% if page.lang == "es" %}Docs{% else %}Docs{% endif %}</strong>
+        {% for item in page.nav %}
+          <a href="#{{ item.id }}">{{ item.label }}</a>
+        {% endfor %}
+      </aside>
+    {% endif %}
+    <div class="post-content docs-content">
+      {{ content }}
+    </div>
   </div>
 
 </article>

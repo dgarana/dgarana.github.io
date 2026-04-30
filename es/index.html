@@ -1,0 +1,60 @@
+---
+layout: default
+title: Documentacion de proyectos
+lang: es
+alternate_url: /
+permalink: /es/
+---
+
+<section class="home-hero">
+  <div class="wrapper home-hero__grid">
+    <div>
+      <p class="eyebrow">Centro de documentacion</p>
+      <h1>Aplicaciones, librerias y las decisiones detras de ellas.</h1>
+      <p class="home-lede">Este sitio es la puerta de entrada a los proyectos de dgarana: documentacion enfocada, notas de implementacion y guias practicas para herramientas que merece la pena compartir.</p>
+      <div class="project-actions">
+        <a class="button button-primary" href="{{ "/es/projects/" | prepend: site.baseurl }}">Ver proyectos</a>
+        <a class="button button-secondary" href="https://github.com/dgarana">Perfil en GitHub</a>
+      </div>
+    </div>
+    <div class="home-console" aria-hidden="true">
+      <div class="console-line prompt">$ abrir docs</div>
+      <div class="console-line ok">/es/projects/vulcano</div>
+      <div class="console-line ok">/es/projects/fmusic</div>
+      <div class="console-line muted">crear cosas utiles y documentarlas bien</div>
+    </div>
+  </div>
+</section>
+
+<section class="wrapper section">
+  <div class="section-heading">
+    <p class="eyebrow">Proyectos destacados</p>
+    <h2>Dos proyectos, dos mundos de producto.</h2>
+  </div>
+
+  <div class="project-card-grid">
+    <a class="project-card project-card--vulcano" href="{{ "/es/projects/vulcano/" | prepend: site.baseurl }}">
+      <span class="project-card__label">Framework CLI en Python</span>
+      <h3>Vulcano</h3>
+      <p>Convierte funciones Python en aplicaciones de linea de comandos interactivas con autocompletado, ayuda, historial, grupos y muy poco boilerplate.</p>
+      <span class="project-card__link">Leer la documentacion</span>
+    </a>
+    <a class="project-card project-card--fmusic" href="{{ "/es/projects/fmusic/" | prepend: site.baseurl }}">
+      <span class="project-card__label">Aplicacion desktop Electron</span>
+      <h3>FMusic</h3>
+      <p>Descarga musica de YouTube, organiza una biblioteca local, edita audio y metadatos, reproduce, emite a Sonos y controla todo desde el telefono.</p>
+      <span class="project-card__link">Leer la documentacion</span>
+    </a>
+  </div>
+</section>
+
+<section class="wrapper section split-section">
+  <div>
+    <p class="eyebrow">Que pertenece aqui</p>
+    <h2>La documentacion como superficie de producto.</h2>
+  </div>
+  <div class="feature-list">
+    <p>Cada proyecto tiene su propio lenguaje visual, una vision general, guia de arranque, notas de arquitectura y mapa de funcionalidades.</p>
+    <p>El objetivo es simple: que quien llegue desde GitHub, PyPI, una release o una conversacion entienda al instante que hace el proyecto y donde ir despues.</p>
+  </div>
+</section>
