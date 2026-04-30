@@ -7,11 +7,11 @@ alternate_url: /projects/fmusic/
 theme: fmusic
 kind: Aplicacion desktop Electron
 status: App de musica multiplataforma
-summary: Descarga musica de YouTube, organiza una biblioteca local SQLite, edita metadatos y audio, reproduce en local, emite a Sonos y controla todo desde un telefono.
+summary: Descarga musica de YouTube, organiza una biblioteca local SQLite, edita metadatos y audio, reproduce en local, emite a Sonos y controla todo desde un telefono o desde un asistente de IA via MCP.
 github: https://github.com/dgarana/fmusic
 primary_cta_label: Leer README
 primary_cta_url: https://github.com/dgarana/fmusic#readme
-visual: '<div class="player-art"><div class="cover-disc"></div><div class="player-art__body"><strong>FMusic</strong><span>Biblioteca local - Descargas - Sonos</span><div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>'
+visual: '<div class="fmusic-logo-art"><img src="/assets/fmusic/logo.png" alt="Logo de FMusic"><span>Download - Manage - Edit - Stream - AI integrated.</span></div>'
 nav:
   - label: Historia
     id: story
@@ -28,11 +28,11 @@ nav:
 <section class="landing-section landing-section--intro" id="story">
   <p class="eyebrow">La estacion de musica local-first</p>
   <h2>Tu musica, tus archivos, tu biblioteca.</h2>
-  <p class="landing-copy">FMusic convierte descubrimiento, descargas, gestion de biblioteca, edicion, reproduccion y casting en un unico flujo desktop. Es para quien quiere el control de los archivos locales sin perder la comodidad de herramientas musicales modernas.</p>
+  <p class="landing-copy">FMusic convierte descubrimiento, descargas, gestion de biblioteca, edicion, reproduccion, casting y control asistido por IA en un unico flujo desktop. Es para quien quiere el control de los archivos locales sin perder la comodidad de herramientas musicales modernas.</p>
   <div class="metric-row">
     <div><strong>Desktop</strong><span>Windows, macOS, Linux</span></div>
     <div><strong>Offline</strong><span>Biblioteca local con SQLite</span></div>
-    <div><strong>Conectado</strong><span>Sonos, QR sync, control remoto</span></div>
+    <div><strong>Conectado</strong><span>Sonos, QR sync, control remoto, MCP</span></div>
   </div>
 </section>
 
@@ -84,8 +84,8 @@ nav:
   <div class="showcase-panel">
     <div class="showcase-copy">
       <p class="eyebrow">05 - Reproduce cerca de cualquier sitio</p>
-      <h2>Reproduccion local, Sonos y control desde el telefono.</h2>
-      <p>Escucha desde el reproductor integrado, emite a Sonos con soporte de seek, descarga canciones al telefono por QR o controla la app desktop desde un navegador en la misma Wi-Fi.</p>
+      <h2>Reproduccion local, Sonos y control desde telefono o IA.</h2>
+      <p>Escucha desde el reproductor integrado, emite a Sonos con soporte de seek, descarga canciones al telefono por QR, controla la app desktop desde un navegador en la misma Wi-Fi o deja que un asistente de IA inspeccione y controle la reproduccion via MCP.</p>
     </div>
     <figure class="showcase-visual showcase-visual--pair">
       <img src="{{ "/assets/fmusic/sonos.png" | prepend: site.baseurl }}" alt="Pantalla de Sonos de FMusic">
@@ -101,7 +101,7 @@ nav:
     <div><span>Spec 01</span><h3>Quiero musica offline.</h3><p>yt-dlp y FFmpeg se preparan como binarios incluidos sin requerir Python en la maquina del usuario.</p></div>
     <div><span>Spec 02</span><h3>Quiero una biblioteca limpia.</h3><p>SQLite, edicion de metadatos, filtros de genero, caratulas, playlists y favoritos mantienen los archivos entendibles.</p></div>
     <div><span>Spec 03</span><h3>Quiero arreglar el audio.</h3><p>Recortes, fades, volumen, preview, exportaciones y bookmarks resuelven las tareas comunes despues de descargar.</p></div>
-    <div><span>Spec 04</span><h3>Quiero llevarlo mas alla del portatil.</h3><p>Sonos, QR mobile sync, control remoto, tray controls y mini player extienden la reproduccion por la casa.</p></div>
+    <div><span>Spec 04</span><h3>Quiero llevarlo mas alla del portatil.</h3><p>Sonos, QR mobile sync, control remoto, MCP, tray controls y mini player extienden la reproduccion por la casa y hacia flujos con IA.</p></div>
   </div>
 </section>
 
@@ -120,6 +120,7 @@ nav:
       <tr><td>Metadatos</td><td>music-metadata y node-id3</td></tr>
       <tr><td>Descargas</td><td>yt-dlp y FFmpeg</td></tr>
       <tr><td>Sonos</td><td>UPnP / AVTransport via <code>@svrooij/sonos</code></td></tr>
+      <tr><td>Control IA</td><td>Servidor MCP local para control de reproduccion y biblioteca desde asistentes</td></tr>
       <tr><td>Distribucion</td><td>electron-builder para Windows, macOS y Linux</td></tr>
     </tbody>
   </table>
@@ -147,7 +148,7 @@ npm run dist:win</code></pre>
   <pre><code>FMUSIC_SKIP_BINARIES=1 npm install</code></pre>
 
   <div class="architecture-list">
-    <div><strong>Main process</strong><span>Ventanas, tray, updater, descargas, servidores locales, streaming Sonos, repositorios SQLite, migraciones e IPC.</span></div>
+    <div><strong>Main process</strong><span>Ventanas, tray, updater, descargas, servidores locales, MCP, streaming Sonos, repositorios SQLite, migraciones e IPC.</span></div>
     <div><strong>Preload</strong><span>Un context bridge tipado expone capacidades seguras al renderer.</span></div>
     <div><strong>Renderer</strong><span>Vistas React para descargas, biblioteca, playlists, editor, ajustes, mini player y estado del control remoto.</span></div>
     <div><strong>Shared</strong><span>Definiciones de canales IPC, tipos de dominio y bundles i18n viven en una frontera compartida.</span></div>

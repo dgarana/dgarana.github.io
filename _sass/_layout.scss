@@ -353,6 +353,30 @@
     }
 }
 
+.fmusic-logo-art {
+    align-items: center;
+    display: grid;
+    justify-items: center;
+    min-height: 360px;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    text-align: center;
+
+    img {
+        border-radius: 28%;
+        filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.28));
+        margin-bottom: 1.1rem;
+        max-width: min(220px, 58%);
+    }
+
+    span {
+        color: #334650;
+        font-size: clamp(1.05rem, 2vw, 1.35rem);
+        font-weight: 780;
+        margin-top: 0.7rem;
+        max-width: 26rem;
+    }
+}
+
 .wave {
     align-items: end;
     display: flex;

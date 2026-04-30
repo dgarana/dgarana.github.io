@@ -8,11 +8,11 @@ order: 2
 theme: fmusic
 kind: Electron desktop app
 status: Cross-platform music app
-summary: Download music from YouTube, manage a local SQLite library, edit metadata and audio, play locally, cast to Sonos, and control playback from a phone.
+summary: Download music from YouTube, manage a local SQLite library, edit metadata and audio, play locally, cast to Sonos, and control playback from a phone or AI assistant through MCP.
 github: https://github.com/dgarana/fmusic
 primary_cta_label: Read README
 primary_cta_url: https://github.com/dgarana/fmusic#readme
-visual: '<div class="player-art"><div class="cover-disc"></div><div class="player-art__body"><strong>FMusic</strong><span>Local library - Downloads - Sonos</span><div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>'
+visual: '<div class="fmusic-logo-art"><img src="/assets/fmusic/logo.png" alt="FMusic logo"><span>Download - Manage - Edit - Stream - AI integrated.</span></div>'
 nav:
   - label: Story
     id: story
@@ -29,11 +29,11 @@ nav:
 <section class="landing-section landing-section--intro" id="story">
   <p class="eyebrow">The local-first music workstation</p>
   <h2>Your music, your files, your library.</h2>
-  <p class="landing-copy">FMusic turns discovery, downloading, library management, editing, playback, and casting into one desktop flow. It is for people who want the control of local files without giving up the convenience of modern music tooling.</p>
+  <p class="landing-copy">FMusic turns discovery, downloading, library management, editing, playback, casting, and AI-assisted control into one desktop flow. It is for people who want the control of local files without giving up the convenience of modern music tooling.</p>
   <div class="metric-row">
     <div><strong>Desktop</strong><span>Windows, macOS, Linux</span></div>
     <div><strong>Offline</strong><span>SQLite-backed local library</span></div>
-    <div><strong>Connected</strong><span>Sonos, QR sync, remote control</span></div>
+    <div><strong>Connected</strong><span>Sonos, QR sync, remote control, MCP</span></div>
   </div>
 </section>
 
@@ -85,8 +85,8 @@ nav:
   <div class="showcase-panel">
     <div class="showcase-copy">
       <p class="eyebrow">05 - Play everywhere nearby</p>
-      <h2>Local playback, Sonos casting, phone control.</h2>
-      <p>Listen through the integrated player, cast to Sonos with seek support, download tracks to a phone via QR, or control the desktop app from a browser on the same Wi-Fi.</p>
+      <h2>Local playback, Sonos casting, phone and AI control.</h2>
+      <p>Listen through the integrated player, cast to Sonos with seek support, download tracks to a phone via QR, control the desktop app from a browser on the same Wi-Fi, or let an AI assistant inspect and control playback through MCP.</p>
     </div>
     <figure class="showcase-visual showcase-visual--pair">
       <img src="{{ "/assets/fmusic/sonos.png" | prepend: site.baseurl }}" alt="FMusic Sonos screen">
@@ -102,7 +102,7 @@ nav:
     <div><span>Spec 01</span><h3>I want music offline.</h3><p>Bundled yt-dlp and FFmpeg prepare audio without requiring Python on the user's machine.</p></div>
     <div><span>Spec 02</span><h3>I want a clean library.</h3><p>SQLite, metadata editing, genre filters, cover art, playlists, and favorites keep files understandable.</p></div>
     <div><span>Spec 03</span><h3>I want to fix the audio.</h3><p>Trimming, fades, volume changes, preview, exports, and bookmarks solve the common post-download cleanup tasks.</p></div>
-    <div><span>Spec 04</span><h3>I want it beyond the laptop.</h3><p>Sonos casting, QR mobile sync, a remote controller, tray controls, and a mini player extend playback around the room.</p></div>
+    <div><span>Spec 04</span><h3>I want it beyond the laptop.</h3><p>Sonos casting, QR mobile sync, a remote controller, MCP control, tray controls, and a mini player extend playback around the room and into AI workflows.</p></div>
   </div>
 </section>
 
@@ -121,6 +121,7 @@ nav:
       <tr><td>Metadata</td><td>music-metadata and node-id3</td></tr>
       <tr><td>Downloads</td><td>yt-dlp and FFmpeg</td></tr>
       <tr><td>Sonos</td><td>UPnP / AVTransport via <code>@svrooij/sonos</code></td></tr>
+      <tr><td>AI control</td><td>Local MCP server for assistant-driven playback and library control</td></tr>
       <tr><td>Distribution</td><td>electron-builder for Windows, macOS, and Linux</td></tr>
     </tbody>
   </table>
@@ -148,7 +149,7 @@ npm run dist:win</code></pre>
   <pre><code>FMUSIC_SKIP_BINARIES=1 npm install</code></pre>
 
   <div class="architecture-list">
-    <div><strong>Main process</strong><span>Windows, tray, updater, downloads, local servers, Sonos streaming, SQLite repositories, migrations, and IPC.</span></div>
+    <div><strong>Main process</strong><span>Windows, tray, updater, downloads, local servers, MCP, Sonos streaming, SQLite repositories, migrations, and IPC.</span></div>
     <div><strong>Preload</strong><span>A typed context bridge exposes safe app capabilities to the renderer.</span></div>
     <div><strong>Renderer</strong><span>React views for downloads, library, playlists, editor, settings, mini player, and remote-control state.</span></div>
     <div><strong>Shared</strong><span>IPC channel definitions, domain types, and i18n bundles live in a shared package boundary.</span></div>
