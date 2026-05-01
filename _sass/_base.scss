@@ -11,6 +11,7 @@ dl, dd, ol, ul, figure {
 
 html {
     scroll-behavior: smooth;
+    overflow-x: clip;
 }
 
 body {
@@ -22,6 +23,7 @@ body {
     -webkit-text-size-adjust: 100%;
     font-feature-settings: "kern" 1;
     font-kerning: normal;
+    overflow-x: clip;
 }
 
 %vertical-rhythm {
@@ -110,6 +112,7 @@ pre {
 table {
     border-collapse: collapse;
     margin: 1.5rem 0 2rem;
+    max-width: 100%;
     width: 100%;
 }
 

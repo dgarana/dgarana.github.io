@@ -7,7 +7,7 @@ alternate_url: /projects/fmusic/
 theme: fmusic
 kind: Aplicación de escritorio Electron
 status: App de música multiplataforma
-summary: Descarga música de YouTube, organiza una biblioteca local SQLite, edita metadatos y audio, reproduce en local, emite a Sonos y controla todo desde un teléfono o desde un asistente de IA vía MCP.
+summary: Descarga música de YouTube o importa archivos locales, organiza una biblioteca SQLite portable, edita metadatos y audio con marcadores, reproduce en local, emite a Sonos, reproduce en un teléfono y controla todo desde un asistente de IA vía MCP.
 github: https://github.com/dgarana/fmusic
 primary_cta_label: Descargar app
 primary_cta_url: https://github.com/dgarana/fmusic/releases
@@ -32,11 +32,11 @@ nav:
 <section class="landing-section landing-section--intro" id="story">
   <p class="eyebrow">La estación de música local-first</p>
   <h2>Tu música, tus archivos, tu biblioteca.</h2>
-  <p class="landing-copy">FMusic convierte descubrimiento, descargas, gestión de biblioteca, edición, reproducción, emisión y control asistido por IA en un único flujo de escritorio. Es para quien quiere el control de los archivos locales sin perder la comodidad de herramientas musicales modernas.</p>
+  <p class="landing-copy">FMusic convierte descubrimiento, descargas, importaciones locales, gestión de biblioteca, edición, reproducción, emisión y control asistido por IA en un único flujo de escritorio. Es para quien quiere el control de los archivos locales sin perder la comodidad de herramientas musicales modernas.</p>
   <div class="metric-row">
     <div><strong>Escritorio</strong><span>Windows, macOS, Linux</span></div>
-    <div><strong>Sin conexión</strong><span>Biblioteca local con SQLite</span></div>
-    <div><strong>Conectado</strong><span>Sonos, sincronización QR, control remoto, MCP</span></div>
+    <div><strong>Portable</strong><span>Biblioteca SQLite con rutas relativas</span></div>
+    <div><strong>Conectado</strong><span>Sonos, sincronización QR, reproducción web, MCP</span></div>
   </div>
 </section>
 
@@ -115,9 +115,10 @@ nav:
       <h2>Organiza.</h2>
     </div>
     <div class="showcase-detail">
-      <p>Ordena, busca, filtra por género, edita metadatos en línea, sincroniza etiquetas en MP3 y usa MusicBrainz cuando la fuente original llega desordenada.</p>
-      <figure class="showcase-visual">
+      <p>Ordena, busca, filtra por género, importa archivos o carpetas locales, limpia canciones perdidas, mueve la carpeta de biblioteca con seguridad, sincroniza etiquetas MP3 y usa MusicBrainz cuando la fuente original llega desordenada.</p>
+      <figure class="showcase-visual showcase-visual--duo">
         <img src="{{ "/assets/fmusic/library.png" | prepend: site.baseurl }}" alt="Pantalla de biblioteca de FMusic">
+        <img src="{{ "/assets/fmusic/mobile-sync.png" | prepend: site.baseurl }}" alt="Pantalla de sincronización móvil de FMusic">
       </figure>
     </div>
   </div>
@@ -128,9 +129,10 @@ nav:
       <h2>Crea listas.</h2>
     </div>
     <div class="showcase-detail">
-      <p>Crea listas, reordena canciones, protege favoritos y genera listas inteligentes desde filtros guardados para que la biblioteca se reorganice según cómo escuchas.</p>
-      <figure class="showcase-visual">
+      <p>Crea listas, reordena canciones, protege Favoritos y genera listas inteligentes desde filtros guardados para que la biblioteca se reorganice según cómo escuchas.</p>
+      <figure class="showcase-visual showcase-visual--duo">
         <img src="{{ "/assets/fmusic/playlists.png" | prepend: site.baseurl }}" alt="Pantalla de playlists de FMusic">
+        <img src="{{ "/assets/fmusic/smart-playlist-builder.png" | prepend: site.baseurl }}" alt="Constructor de smart playlists de FMusic">
       </figure>
     </div>
   </div>
@@ -141,7 +143,7 @@ nav:
       <h2>Ajusta audio.</h2>
     </div>
     <div class="showcase-detail">
-      <p>El banco de trabajo de audio hace que las ediciones rápidas se sientan nativas: recortar silencios, añadir fundidos, ajustar volumen, exportar una copia o guardar puntos de referencia para volver después.</p>
+      <p>El banco de trabajo de audio hace que las ediciones rápidas se sientan nativas: recortar silencios, añadir fundidos, ajustar volumen, exportar una copia o gestionar puntos de referencia con nombre y color desde el editor, el reproductor o el control remoto.</p>
       <figure class="showcase-visual">
         <img src="{{ "/assets/fmusic/edit.png" | prepend: site.baseurl }}" alt="Editor de audio de FMusic">
       </figure>
@@ -154,7 +156,7 @@ nav:
       <h2>Reproduce.</h2>
     </div>
     <div class="showcase-detail">
-      <p>Escucha desde el reproductor integrado, reproduce en Sonos con soporte de seek, descarga canciones al teléfono por QR, controla la app de escritorio desde un navegador en la misma Wi-Fi o deja que un asistente de IA inspeccione y controle la reproducción vía MCP.</p>
+      <p>Escucha desde el reproductor integrado, reproduce en Sonos con soporte de seek, descarga canciones al teléfono por QR, controla la app de escritorio desde un navegador en la misma Wi-Fi, reproduce una canción directamente en ese navegador o deja que un asistente de IA inspeccione y controle la reproducción vía MCP.</p>
       <figure class="showcase-visual showcase-visual--pair">
         <img src="{{ "/assets/fmusic/sonos.png" | prepend: site.baseurl }}" alt="Pantalla de Sonos de FMusic">
         <img src="{{ "/assets/fmusic/remote-controller-mobile.png" | prepend: site.baseurl }}" alt="Control remoto móvil de FMusic">
@@ -167,10 +169,10 @@ nav:
   <p class="eyebrow">Problemas que resuelve</p>
   <h2>Construido alrededor de flujos reales de escucha.</h2>
   <div class="problem-grid">
-    <div><span>Caso 01</span><h3>Quiero música sin conexión.</h3><p>yt-dlp y FFmpeg se preparan como binarios incluidos sin requerir Python en la máquina del usuario.</p></div>
-    <div><span>Caso 02</span><h3>Quiero una biblioteca limpia.</h3><p>SQLite, edición de metadatos, filtros de género, carátulas, listas y favoritos mantienen los archivos comprensibles.</p></div>
+    <div><span>Caso 01</span><h3>Quiero música sin conexión.</h3><p>yt-dlp y FFmpeg se preparan como binarios incluidos sin requerir Python en la máquina del usuario, mientras las importaciones de archivos y carpetas incorporan colecciones existentes.</p></div>
+    <div><span>Caso 02</span><h3>Quiero una biblioteca limpia.</h3><p>SQLite, rutas relativas, limpieza de archivos perdidos, edición de metadatos, filtros de género, carátulas, listas, smart playlists y favoritos mantienen los archivos comprensibles y portables.</p></div>
     <div><span>Caso 03</span><h3>Quiero arreglar el audio.</h3><p>Recortes, fundidos, volumen, vista previa, exportaciones y marcadores resuelven las tareas habituales después de descargar.</p></div>
-    <div><span>Caso 04</span><h3>Quiero llevarlo más allá del portátil.</h3><p>Sonos, sincronización móvil por QR, control remoto, MCP, controles de bandeja y mini reproductor extienden la reproducción por la casa y hacia flujos con IA.</p></div>
+    <div><span>Caso 04</span><h3>Quiero llevarlo más allá del portátil.</h3><p>Sonos, sincronización móvil por QR, reproducción en el navegador del teléfono, MCP, controles de bandeja y mini reproductor extienden la reproducción por la casa y hacia flujos con IA.</p></div>
   </div>
 </section>
 
@@ -188,8 +190,10 @@ nav:
       <tr><td>Base de datos</td><td>better-sqlite3 con migraciones versionadas</td></tr>
       <tr><td>Metadatos</td><td>music-metadata y node-id3</td></tr>
       <tr><td>Descargas</td><td>yt-dlp y FFmpeg</td></tr>
+      <tr><td>Portabilidad</td><td>Importación de archivos/carpetas, rutas relativas, soporte para mover la biblioteca y limpieza de archivos perdidos</td></tr>
       <tr><td>Sonos</td><td>UPnP / AVTransport vía <code>@svrooij/sonos</code></td></tr>
-      <tr><td>Control IA</td><td>Servidor MCP local para controlar reproducción y biblioteca desde asistentes</td></tr>
+      <tr><td>Control remoto</td><td>Interfaz web local protegida por token con control del host o reproducción directa en el navegador</td></tr>
+      <tr><td>Control IA</td><td>Servidor MCP local para controlar reproducción, búsqueda de biblioteca, playlists y descargas desde asistentes</td></tr>
       <tr><td>Distribución</td><td>electron-builder para Windows, macOS y Linux</td></tr>
     </tbody>
   </table>
@@ -234,7 +238,7 @@ npm run dist:win</code></pre>
   <pre><code>FMUSIC_SKIP_BINARIES=1 npm install</code></pre>
 
   <div class="architecture-list">
-    <div><strong>Main process</strong><span>Ventanas, bandeja del sistema, actualizador, descargas, servidores locales, MCP, streaming Sonos, repositorios SQLite, migraciones e IPC.</span></div>
+    <div><strong>Main process</strong><span>Ventanas, bandeja del sistema, actualizador, descargas, importación local, servidores locales, MCP, streaming Sonos, repositorios SQLite, migraciones e IPC.</span></div>
     <div><strong>Preload</strong><span>Un puente de contexto tipado expone capacidades seguras al renderer.</span></div>
     <div><strong>Renderer</strong><span>Vistas React para descargas, biblioteca, listas, editor, ajustes, mini reproductor y estado del control remoto.</span></div>
     <div><strong>Shared</strong><span>Definiciones de canales IPC, tipos de dominio y paquetes i18n viven en una frontera compartida.</span></div>

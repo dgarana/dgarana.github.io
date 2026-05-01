@@ -9,6 +9,7 @@
     .wrapper {
         align-items: center;
         display: flex;
+        gap: 1rem;
         min-height: 72px;
         justify-content: space-between;
     }
@@ -19,6 +20,8 @@
     font-size: 1rem;
     font-weight: 800;
     letter-spacing: 0;
+    min-width: 0;
+    overflow-wrap: anywhere;
 
     span {
         color: #6c747b;
@@ -30,6 +33,7 @@
 .site-nav {
     align-items: center;
     display: flex;
+    flex: 0 0 auto;
 
     .menu-icon {
         display: none;
@@ -268,8 +272,14 @@
     min-width: 0;
 }
 
+.project-hero__copy {
+    min-width: 0;
+}
+
 .terminal-art {
     background: #15110d;
+    max-width: 100%;
+    min-width: 0;
     overflow: hidden;
 }
 
@@ -301,6 +311,7 @@
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
     gap: 0.85rem;
     min-height: 330px;
+    min-width: 0;
     padding: 1.35rem;
 
     span {
@@ -432,6 +443,8 @@
     background: rgba(255, 255, 255, 0.58);
     border: 1px solid rgba(16, 20, 24, 0.09);
     border-radius: 8px;
+    min-width: 0;
+    overflow-wrap: anywhere;
     padding: clamp(1.25rem, 4vw, 3rem);
 
     h2 {
@@ -473,6 +486,7 @@
     border: 1px solid rgba(16, 20, 24, 0.09);
     border-radius: 8px;
     margin-bottom: 1.2rem;
+    min-width: 0;
     overflow: hidden;
     padding: clamp(1.4rem, 5vw, 4rem);
 
@@ -487,6 +501,13 @@
 
     pre {
         margin-top: 1rem;
+        max-width: 100%;
+    }
+
+    table {
+        display: block;
+        max-width: 100%;
+        overflow-x: auto;
     }
 }
 
@@ -685,6 +706,13 @@
         max-height: 620px;
         object-fit: contain;
     }
+}
+
+.showcase-visual--duo {
+    align-items: center;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .problem-grid,
@@ -1106,7 +1134,48 @@
         grid-template-columns: 1fr;
     }
 
-    .showcase-visual--pair {
+    .showcase-visual--pair,
+    .showcase-visual--duo {
         grid-template-columns: 1fr;
+    }
+
+    .docs-content,
+    .landing-section {
+        pre {
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        table,
+        thead,
+        tbody,
+        tr,
+        th,
+        td {
+            display: block;
+        }
+
+        table {
+            overflow: visible;
+        }
+
+        thead {
+            display: none;
+        }
+
+        tr {
+            border-bottom: 1px solid rgba(16, 20, 24, 0.12);
+            padding: 0.75rem 0;
+        }
+
+        td {
+            border-bottom: 0;
+            padding: 0.25rem 0;
+        }
+
+        td:first-child {
+            color: #101418;
+            font-weight: 780;
+        }
     }
 }
