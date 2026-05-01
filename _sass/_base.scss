@@ -1,3 +1,7 @@
+@use "sass:color";
+@use "sass:math";
+@use "variables" as *;
+
 * {
     box-sizing: border-box;
 }
@@ -25,7 +29,7 @@ body {
 }
 
 %vertical-rhythm {
-    margin-bottom: $spacing-unit / 2;
+    margin-bottom: math.div($spacing-unit, 2);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -70,7 +74,7 @@ a {
     }
 
     &:hover {
-        color: darken($brand-color, 14%);
+        color: color.adjust($brand-color, $lightness: -14%);
     }
 }
 
