@@ -24,3 +24,7 @@ collections:
   projects:
     output: true
     permalink: /projects/:path/
+
+sass:
+  quiet_deps: true
+  quiet: true

@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 * {
     box-sizing: border-box;
 }
@@ -27,7 +29,7 @@ body {
 }
 
 %vertical-rhythm {
-    margin-bottom: $spacing-unit / 2;
+    margin-bottom: calc($spacing-unit / 2);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -72,7 +74,7 @@ a {
     }
 
     &:hover {
-        color: darken($brand-color, 14%);
+        color: mix(black, $brand-color, 14%);
     }
 }
 

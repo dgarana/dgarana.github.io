@@ -5,9 +5,6 @@
 
 
 // Import partials from `sass_dir` (defaults to `_sass`).
-@import
-        "variables",
-        "base",
-        "layout",
-        "syntax-highlighting"
-;
+@use "base";
+@use "layout";
+@use "syntax-highlighting";
