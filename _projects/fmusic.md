@@ -10,18 +10,22 @@ kind: Electron desktop app
 status: Cross-platform music app
 summary: Download music from YouTube, manage a local SQLite library, edit metadata and audio, play locally, cast to Sonos, and control playback from a phone or AI assistant through MCP.
 github: https://github.com/dgarana/fmusic
-primary_cta_label: Read README
-primary_cta_url: https://github.com/dgarana/fmusic#readme
+primary_cta_label: Download app
+primary_cta_url: https://github.com/dgarana/fmusic/releases
 visual: '<div class="fmusic-logo-art"><img src="/assets/fmusic/logo.png" alt="FMusic logo"><span>Download - Manage - Edit - Stream - AI integrated.</span></div>'
 nav:
   - label: Story
     id: story
+  - label: AI control
+    id: ai-control
   - label: Showcase
     id: showcase
   - label: Problems
     id: problems
   - label: Specs
     id: specs
+  - label: Install
+    id: install
   - label: Development
     id: development
 ---
@@ -37,61 +41,126 @@ nav:
   </div>
 </section>
 
+<section class="landing-section ai-console-section" id="ai-control">
+  <div class="ai-console-copy">
+    <p class="eyebrow">AI integrated through MCP</p>
+    <h2>Two agents. One music library.</h2>
+    <p class="landing-copy">FMusic exposes a local MCP server so Claude can control playback and Codex can research, search, and queue downloads through the same local tools.</p>
+  </div>
+
+  <div class="ai-console-tabs">
+    <input class="ai-tab-input" type="radio" name="ai-console-en" id="ai-tab-claude-en" checked>
+    <input class="ai-tab-input" type="radio" name="ai-console-en" id="ai-tab-codex-en">
+    <div class="ai-tab-list" role="tablist" aria-label="AI console examples">
+      <label for="ai-tab-claude-en">Claude playback</label>
+      <label for="ai-tab-codex-en">Codex downloads</label>
+    </div>
+    <div class="ai-tab-panels">
+      <div class="ai-tab-panel ai-tab-panel--claude">
+        <div class="ai-terminal" aria-label="Simulated Claude Code console controlling FMusic">
+          <div class="ai-terminal__chrome">
+            <span>Claude Code</span>
+            <small>FMusic MCP connected</small>
+          </div>
+          <div class="ai-terminal__body">
+            <p class="ai-terminal__prompt">what is playing?</p>
+            <p class="ai-terminal__call">called fmusic_player_state</p>
+            <p class="ai-terminal__answer">Nothing is playing right now. The player is stopped and the queue is empty.</p>
+            <p class="ai-terminal__prompt">play something random</p>
+            <p class="ai-terminal__call">called fmusic_search_library</p>
+            <p class="ai-terminal__call">called fmusic_play_track</p>
+            <p class="ai-terminal__answer">Playing <strong>Strobe</strong> by deadmau5. A classic.</p>
+            <p class="ai-terminal__cursor">&gt; <span></span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ai-tab-panel ai-tab-panel--codex">
+        <div class="ai-terminal ai-terminal--codex" aria-label="Simulated OpenAI Codex console controlling FMusic">
+          <div class="ai-terminal__chrome">
+            <span>&gt;_ OpenAI Codex</span>
+            <small>agent + FMusic MCP</small>
+          </div>
+          <div class="ai-terminal__body">
+            <p class="ai-terminal__prompt">download the top 2 techno songs for 2026</p>
+            <p class="ai-terminal__answer">I’ll verify a current techno chart first, then use FMusic to find and queue matching tracks.</p>
+            <p class="ai-terminal__call">searched web: 2026 techno top tracks chart</p>
+            <p class="ai-terminal__call">called fmusic.download_search_youtube</p>
+            <p class="ai-terminal__call">called fmusic.download_enqueue_url</p>
+            <p class="ai-terminal__answer">Queued two matching tracks as 320kbps MP3 downloads and checked the downloader state.</p>
+            <p class="ai-terminal__cursor">&gt; <span></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="scroll-showcase" id="showcase">
   <div class="showcase-panel">
     <div class="showcase-copy">
       <p class="eyebrow">01 - Capture</p>
-      <h2>Search, preview, download, keep moving.</h2>
-      <p>Queue tracks from YouTube, import playlists, follow live progress, resume cancelled jobs, and avoid duplicate downloads before they clutter the library.</p>
+      <h2>Capture music.</h2>
     </div>
-    <figure class="showcase-visual">
-      <img src="{{ "/assets/fmusic/downloads.png" | prepend: site.baseurl }}" alt="FMusic downloads screen">
-    </figure>
+    <div class="showcase-detail">
+      <p>Queue tracks from YouTube, import playlists, follow live progress, resume cancelled jobs, and avoid duplicate downloads before they clutter the library.</p>
+      <figure class="showcase-visual">
+        <img src="{{ "/assets/fmusic/downloads.png" | prepend: site.baseurl }}" alt="FMusic downloads screen">
+      </figure>
+    </div>
   </div>
 
   <div class="showcase-panel">
     <div class="showcase-copy">
       <p class="eyebrow">02 - Organize</p>
-      <h2>A proper library instead of a folder full of files.</h2>
-      <p>Sort, search, filter by genre, edit metadata inline, sync tags back to MP3 files, and use MusicBrainz lookup when the original source is messy.</p>
+      <h2>Organize it.</h2>
     </div>
-    <figure class="showcase-visual">
-      <img src="{{ "/assets/fmusic/library.png" | prepend: site.baseurl }}" alt="FMusic library screen">
-    </figure>
+    <div class="showcase-detail">
+      <p>Sort, search, filter by genre, edit metadata inline, sync tags back to MP3 files, and use MusicBrainz lookup when the original source is messy.</p>
+      <figure class="showcase-visual">
+        <img src="{{ "/assets/fmusic/library.png" | prepend: site.baseurl }}" alt="FMusic library screen">
+      </figure>
+    </div>
   </div>
 
   <div class="showcase-panel">
     <div class="showcase-copy">
       <p class="eyebrow">03 - Curate</p>
-      <h2>Playlists that behave like part of the product.</h2>
-      <p>Create playlists, reorder tracks, keep favorites protected, and build smart playlists from saved filters so the library reshapes itself around how you listen.</p>
+      <h2>Curate playlists.</h2>
     </div>
-    <figure class="showcase-visual">
-      <img src="{{ "/assets/fmusic/playlists.png" | prepend: site.baseurl }}" alt="FMusic playlists screen">
-    </figure>
+    <div class="showcase-detail">
+      <p>Create playlists, reorder tracks, keep favorites protected, and build smart playlists from saved filters so the library reshapes itself around how you listen.</p>
+      <figure class="showcase-visual">
+        <img src="{{ "/assets/fmusic/playlists.png" | prepend: site.baseurl }}" alt="FMusic playlists screen">
+      </figure>
+    </div>
   </div>
 
   <div class="showcase-panel">
     <div class="showcase-copy">
       <p class="eyebrow">04 - Shape</p>
-      <h2>Trim, fade, boost, bookmark.</h2>
-      <p>The audio workbench makes quick edits feel native: trim silence, add fades, adjust volume, export a copy, or mark cue points you can jump to later.</p>
+      <h2>Shape audio.</h2>
     </div>
-    <figure class="showcase-visual">
-      <img src="{{ "/assets/fmusic/edit.png" | prepend: site.baseurl }}" alt="FMusic audio editor screen">
-    </figure>
+    <div class="showcase-detail">
+      <p>The audio workbench makes quick edits feel native: trim silence, add fades, adjust volume, export a copy, or mark cue points you can jump to later.</p>
+      <figure class="showcase-visual">
+        <img src="{{ "/assets/fmusic/edit.png" | prepend: site.baseurl }}" alt="FMusic audio editor screen">
+      </figure>
+    </div>
   </div>
 
   <div class="showcase-panel">
     <div class="showcase-copy">
       <p class="eyebrow">05 - Play everywhere nearby</p>
-      <h2>Local playback, Sonos casting, phone and AI control.</h2>
-      <p>Listen through the integrated player, cast to Sonos with seek support, download tracks to a phone via QR, control the desktop app from a browser on the same Wi-Fi, or let an AI assistant inspect and control playback through MCP.</p>
+      <h2>Play anywhere.</h2>
     </div>
-    <figure class="showcase-visual showcase-visual--pair">
-      <img src="{{ "/assets/fmusic/sonos.png" | prepend: site.baseurl }}" alt="FMusic Sonos screen">
-      <img src="{{ "/assets/fmusic/remote-controller-mobile.png" | prepend: site.baseurl }}" alt="FMusic remote controller mobile screen">
-    </figure>
+    <div class="showcase-detail">
+      <p>Listen through the integrated player, cast to Sonos with seek support, download tracks to a phone via QR, control the desktop app from a browser on the same Wi-Fi, or let an AI assistant inspect and control playback through MCP.</p>
+      <figure class="showcase-visual showcase-visual--pair">
+        <img src="{{ "/assets/fmusic/sonos.png" | prepend: site.baseurl }}" alt="FMusic Sonos screen">
+        <img src="{{ "/assets/fmusic/remote-controller-mobile.png" | prepend: site.baseurl }}" alt="FMusic remote controller mobile screen">
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -125,6 +194,23 @@ nav:
       <tr><td>Distribution</td><td>electron-builder for Windows, macOS, and Linux</td></tr>
     </tbody>
   </table>
+</section>
+
+<section class="landing-section" id="install">
+  <p class="eyebrow">Install FMusic</p>
+  <h2>Download the build for your operating system.</h2>
+  <p class="landing-copy">The app is distributed from GitHub Releases. Open the latest release, download the installer or package for your platform, and launch FMusic like any other desktop app.</p>
+
+  <div class="install-grid">
+    <div><span>macOS</span><h3>Download the DMG.</h3><p>Open the <code>.dmg</code>, drag FMusic into Applications, then launch it from Applications or Spotlight.</p></div>
+    <div><span>Windows</span><h3>Download the installer.</h3><p>Run the Windows <code>.exe</code> installer from the release assets and follow the setup flow.</p></div>
+    <div><span>Linux</span><h3>Download AppImage or deb.</h3><p>Use the <code>.AppImage</code> for a portable build, or install the <code>.deb</code> package on Debian/Ubuntu-based systems.</p></div>
+  </div>
+
+  <div class="project-actions">
+    <a class="button button-primary" href="https://github.com/dgarana/fmusic/releases">Open releases</a>
+    <a class="button button-secondary" href="https://github.com/dgarana/fmusic#readme">Read README</a>
+  </div>
 </section>
 
 <section class="landing-section" id="development">
