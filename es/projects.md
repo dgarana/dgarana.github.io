@@ -20,4 +20,10 @@ alternate_url: /projects/
     <p>Descarga música de YouTube, organiza una biblioteca local, edita audio y metadatos, reproduce, emite a Sonos y controla todo desde el teléfono.</p>
     <strong>Abrir documentación</strong>
   </a>
+  <a class="project-index-card project-card--mt12overlaystudio" href="{{ "/es/projects/mt12overlaystudio/" | prepend: site.baseurl }}">
+    <span>App Electron de overlays de telemetría</span>
+    <h2>MT12OverlayStudio</h2>
+    <p>Crea overlays de vídeo transparentes desde logs de telemetría de RadioMaster MT12 con editor visual, scripts Lua y exportación ProRes o PNG.</p>
+    <strong>Abrir documentación</strong>
+  </a>
 </div>
